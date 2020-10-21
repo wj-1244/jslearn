@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    //学习目标：循环目的？for循环？while dowhile 循环？break及continue？
+    //目的：重复使用某些代码
+    //for循环：
+    // 1. 语法结构
+    // for(初始化变量;条件表达式;操作表达式) {
+    //     //循环体
+    // }
+    // 2. 初始化变量 就是用var声明的一个普通变量，通常用于作为计数器使用
+    // 3. 条件表达式 决定每一次循环是否继续执行 就是终止条件
+    // 4. 操作表达式 是每次循环最后执行的代码 经常用于计数器变量进行更新（递增或递减）
+    // 5. 代码体验
+    // for (var i = 1 ; i <= 100; i++) {
+    //     console.log('nihao');
+        
+    // }
+    // 6. 重复执行不同的代码
+    // for (var i = 1; i <= 10; i++) {
+    //     console.log('这个人今年'+ i + '岁了');
+        
+    // }
+    // 7. 求1-100的整数累加和
+    // var sum = 0;
+    // for (var i = 1; i <= 100;i++) {
+    //     sum += i
+    // }
+    // console.log(sum);
+    // 8. 求1-100之间所有数的平均值
+    // var sum = 0;
+    // var average = 0;
+    // for (var i = 1; i <= 100;i++) {
+    //     sum += i
+    // }
+    // average = sum/100;
+    // console.log(average);
+    // 9. 求1-100之间所有偶数和奇数的和
+    // var even = 0;
+    // var odd = 0;
+    // for (var i = 1; i <=100; i++) {
+    //     if (i % 2 == 0) {
+    //         even = even + i;
+    //     } else {
+    //         odd = odd + i;
+    //     }
+    // }
+    // console.log('偶数和是：'+ even);
+    // console.log('奇数和是：'+ odd);
+    // 10. 求学生成绩案例
+    // var num = prompt('请输入班级总人数');
+    // var sum = 0;
+    // var average = 0;
+    // for (var i = 1; i <= num; i++) {
+    //     var score = prompt('请您输入第' + i + '个学生成绩');
+    //     sum = sum + parseFloat(score); //parseFloat让返回的字符串
+    // }
+    // average = sum / num;
+    // alert('班级总成绩是' + sum);
+    // alert('平均分是' + average);
+    // 11. 一行打印五颗星星
+    //  var str = "";
+    //  for (var i = 1; i <= 5; i++){
+    //      str += '⭐';
+    //  }
+    // console.log(str);
+
+    //双重for循环
+    // 1. 语法结构
+    // for(外层初始化变量;外层条件表达式;外层操作表达式) {
+    //     for(里层初始化变量;里层条件表达式;里层操作表达式) {
+    //         //执行语句；
+    //     }
+    // }
+    // 2. 外面循环执行一次，外面循环执行全部
+    // 3. 代码验证
+    // for (var i = 1; i <= 3; i++) {
+    //     console.log('这是外层循环第' + i +'次');
+    //     for (var j = 1; j <= 3; j++) {
+    //         console.log('这是里层循环第' + j +'次');
+            
+    //     }
+        
+    // }
+    //打印n行n列星星
+    //  var rows = prompt('请您输入行数');
+    //  var cols = prompt('请您输入列数');
+    //  var str = '';
+    //  for (var i = 1; i <= rows; i++) {
+    //      for (var j = 1; j <= cols; j++) {
+    //          str += '⭐';
+    //      }
+    //      str += '\n';
+    //  }
+    //  console.log(str);
+    //打印倒三角形案例
+    // var str = '';
+    // for(var i = 1; i <= 10; i++ ) {
+    //     for (var j = i; j <= 10; j++) {
+    //         str += '⭐';
+    //     }
+    //     str += '\n';
+    // }
+    //  console.log(str);
+    //九九乘法表
+    // var str = '';
+    // for(var i = 1; i <= 9; i++ ) {
+    //     for (var j = 1; j <= i; j++) {
+    //         str += j + '*' + i + '=' + i * j + '\t';
+    //     }
+    //     str += '\n';
+    // }
+    //  console.log(str);
+     
+    // // 1. while 循环语法结构
+    // while (条件表达式) {
+    //     //循环体
+    // }
+    // 2. 执行思路 当条件表达式结果为true  则执行循环体 否则 退出循环
+    // 3. 里面应该也有计数器  初始化变量
+    // 4. 里面应该也有操作表达式  完成计数器更新 防止死循环
+    // 5. 代码验证：
+    // var num = 1;
+    // while (num <= 100) {
+    //     console.log(11);
+    //     num++;
+    // }
+    // 6. 例子：
+    //打印1-100岁
+    // var i = 1;
+    // while (i < 100) {
+    //     console.log('这个人今年'+ i + '岁了');
+    //     i++;
+    // }
+    //计算1-100的和
+    // var sum = 0;
+    // var j = 1 ;
+    // while (j <= 100) {
+    //     sum += j;
+    //     j++;
+    // }
+    // console.log(sum);
+    //弹出一个提示框 你爱我吗 如果输入我爱你结束，否则一直询问
+    // var message = prompt('你爱我吗');
+    // while (message !== '我爱你') {
+    //     message = prompt('你爱我吗');
+    // }
+    // alert('我也爱你啊');
+
+    //do while循环
+    // 1. 语法结构
+    // do {
+    //     //循环体
+    // } while (条件表达式)
+    // 2. 执行思路：先执行一次循环，再判断条件，如果条件表达式为真，则继续执行
+    //    循环体，否则退出循环，至少循环一次
+    // 3. 例子
+    //打印1-100岁
+    // var i = 1;
+    // do {
+    //     console.log('这个人今年'+ i + '岁了');
+    //     i++;
+    // }  while (i <= 100)
+    //计算1-100的和
+//     var sum = 0;
+//     var j = 1 ;
+//     do {
+//         sum += j;
+//         j++;
+//     } while (j <= 100)
+//    console.log(sum);
+  //弹出一个提示框 你爱我吗 如果输入我爱你结束，否则一直询问
+//   do {
+//     var message = prompt('你爱我吗');
+//   } while (message !== '我爱你')
+//   alert('我也爱你啊');
+
+//continue关键字：跳出当前循环,进行下一次循环
+// for (var i = 1; i <= 5; i++) {
+//     if (i == 3) {
+//         continue;
+//     }
+//     console.log(i);
+    
+// }
+//求1-100之内，除了能被7整除以外的整数之和
+// var sum = 0;
+// for (var i = 1; i <= 100 ; i++) {
+//     if (i % 7 == 0) {
+//         continue;
+//     }
+//     sum += i;
+// }
+// console.log(sum);
+
+//break跳出整个循环
+// for (var i = 1; i <= 5; i++) {
+//     if (i == 3) {
+//         break;
+//     }
+//     console.log(i);
+    
+// }
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

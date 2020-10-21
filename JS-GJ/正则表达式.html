@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <style>
+        .right {
+            color: green;
+        }
+        .wrong {
+            color : red;
+        }
+        </style>
+    <script>
+    //正则表达式：用来检索、替换那些符合某个模式的文本--匹配 替换 提取
+    //创建正则表达式：
+    // 1. 利用RegExp对象来创建
+    // var regexp = new RegExp(/123/);
+    // console.log(regexp);
+    // 2. 利用字面量创建
+    // var rg = /123/;
+    // 3. 测试正则表达式test
+    // regexObj.test(str);
+    //regexObj是写的正则表达式，str是要测试的文本，检测str是否符合正则表达式
+    // var rg = /123/;
+    // console.log(rg.test(123));
+    // 4. 边界符 ^ $   精确匹配，开头-结尾
+    // var rg = /^abc$/;  //正则表达式里不需要加引号，不管是数字型还是字符串型
+    // console.log(rg.test('abc'));
+    // console.log(rg.test('abcd'));
+    // console.log(rg.test('abcabc'));
+    // 5. 字符类[]：表示有一系列字符可供选择，只要匹配其中一个即可
+    // var rg = /[abc]/; //只要包含a 或b 或c  都返回true 
+    // console.log(rg.test('abc'));
+    // var rg = /^[abc]$/; //三选一 只有包含a 或b 或c  才返回true
+    // var rg = /^[a-z]$/;  //26个英文字母任何一个字母返回true
+    // var rg = /^[a-zA-Z0-9_-]$/; //26个字母大小写，下划线 横线 包含任意一个返回true
+    // var rg = /^[^a-zA-Z0-9_-]$/;  // 中括号中有^ 表示取反
+    // 6. 量词符
+    // var rg = /^a*$/;  //* 表示可以出现0次或者很多次
+    // var rg = /^a+$/;  // + 表示可以出现1次或者很多次
+    // var rg = /^a?$/;  //  相当于 出现1次 或者0 次
+    // var rg = /^a{3}$/;  //重复3次
+    // var rg = /^a{3,}$/;//大于等于3
+    // var rg = /^a{3,16}$/;//大于等于3且小于等于16
+    // 7.量词重复某个模式的次数
+    // var rg = /^[a-zA-Z0-9_-]{6,10}$/;
+    // 8. 用户名表单认证
+    // var reg = /^[a-zA-Z0-9_-]{6,10}$/;
+    // var uname = document.querySelector('.uname');
+    // var span = document.querySelector('span');
+    // uname.onblur = function() {
+    //     if (reg.test(this.value)) {
+    //         console.log('正确的');
+    //         span.className = 'right';
+    //         span.innerHTML = '用户名格式输入正确';
+    //     } else {
+    //         console.log('错误的');
+    //         span.className = 'wrong';
+    //         span.innerHTML = '用户名格式输入不正确';
+    //     }
+    // }
+    //9.   \d:0-9之间的数    \D：0-9以外的字符； \w:匹配任意的数字字母下划线
+        //   \W：除数字字母下划线以外的字符   \s匹配空格   \S匹配空格以外的字符
+    // 10. 正则替换
+       //(1) replace  替换
+            // var text = document.querySelector('textarea');
+            // var btn = document.querySelector('button');
+            // var div = document.querySelector('div');
+            // btn.onclick = function () {
+            //     div.innerHTML = text.value.replace(/激情|人生/g, '**');
+            // }
+        //(2) switch 修饰符
+       // i 对大小写不敏感；g 全局匹配（查找所有匹配而非在找到第一个匹配后停止）； gi 全局匹配+忽略大小写
+//        $(function() {
+ 
+//  var tel = $('#tel').html();
+
+//  var mtel = tel.substr(0, 3) + '****' + tel.substr(7);
+//  $('#tel').text(mtel);
+// });
+
+    </script>
+    
+</head>
+<body>
+    <!-- <input type="text" class="uname"><span>请输入用户名</span>
+    <textarea name ="" id = "message"></textarea> <button>提交</button>
+    <div></div> -->
+    <!-- <span id="tel">13700001524</span> -->
+    <input type="text">
+    <button>提交</button>
+    <div></div>
+    <script>
+    var btn = document.getElementsByTagName('button')[0];
+    var input = document.getElementsByTagName('input')[0];
+    var div = document.getElementsByTagName('div')[0];
+
+    // btn.onclick = function() {
+    //     var reg = /^(\d{3})\d{4}(\d{4})$/;
+    // div.innerHTML = input.value.replace(reg,"$1****$2");
+    // }
+    function regMobile(mobile) {
+    　　if (mobile.length > 7) {
+    　　　　var new_mobile = mobile.substr(0, 3) + '****' + mobile.substr(7)
+    　　}
+    　　return new_mobile
+    }
+    
+    // <!-- <input type="text" id="myText"> 
+    // <p>js手机验证以及隐藏手机号码中间四位</p> 
+    // <input type="button" value="提交" id="subBtn"> 
+    // <script type='text/javascript'> 
+    //  $(function(){ 
+    //      $("#subBtn").click(function(){
+    //           if($("#myText").val()=="")
+    //             { alert("手机号码不能为空") }
+    //           else{ if(iphoneCheck(myText)){ alert("提交成功"); 
+    //           var phone=$("#myText").val(); 
+    //           var myphone=phone.substr(3,4); 
+    //           //alert(myphone) 
+    //           var lphone=phone.replace(myphone,"****"); 
+    //           $("#myText").val(lphone); }else{ alert("请输入正确的手机号码") } } 
+    //           function iphoneCheck(id){ var temp=document.getElementById("myText"); 
+    //           var re=/^[1][34587]\d{9}$/;
+    //           //手机号码验证正则表达式 
+    //           if(re.test(temp.value)){ 
+    //               return true; 
+    //               }else{ 
+    //                 return false; 
+    //                 } } }); });  -->
+                    
+    </script>
+</body> 
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        //函数：概念、使用、参数、返回值、arguments的使用、两种声明方式
+
+        //概念：封装了一段可被重复调用执行的代码
+        //例子：求和
+        // function getSum(num1,num2){       //声明
+        //     var sum = 0;
+        //     for (var i = num1;i <= num2;i++){
+        //         sum+= i;
+        //     }
+        //     console.log(sum);
+            
+        // }
+        // getSum(1,100);     //调用
+
+        //函数的使用
+        // 1. 声明函数：函数名一般是动词
+        // function 函数名() {
+        //     //函数体
+        // }
+        // 2. 调用函数  ：函数名()    一定要加(),函数不调用 自己不执行
+
+
+        //利用函数的参数可以实现函数重复不同的代码
+        // function  函数名(形参1，形参2...){
+
+        // }
+        // 函数名（实参1，实参2...);
+        //执行过程：
+        // function cook (aru){   //形参是接受实参的  形参类似于一个变量
+        //     console.log(aru);
+            
+        // }
+        // cook('酸辣土豆丝');
+        // cook('酸辣土豆丝'); //参数的作用：在函数内部某些值不能固定，我们可以通过参数在调用函数时传递不同的值进去
+
+        //利用函数求任意两数之和
+        // function getSum(num1,num2){
+        //     console.log(num1+num2);
+            
+        // }
+        // getSum(1,3);
+        //利用函数求任意两数之间的和
+        // function getSum(start,end){
+        //     var sum = 0;
+        //     for (var i = start;i <= end;i++){
+        //         sum +=i;
+        //     }
+        //     console.log(sum);
+            
+        // }
+        // getSum(1,100);
+        //多个参数之间用逗号隔开，形参数可以看作不用声明的变量
+
+        //形参和实参的匹配问题
+        // 1. 实参和形参的个数一致，正常输出结果
+        // 2. 实参的个数多于形参，会取到形参的个数
+        // 3. 实参的个数小于形参的个数，多余的形参定义为undefined，输出NaN
+
+        //函数的返回值return
+        // 1. 格式：
+        // function 函数名() {
+        //     return 需要返回的结果;
+        // }
+        // 函数名();
+        // (1) 函数只是实现某种功能，最终的结果需要返回给函数的调用--函数名()  通过 return 实现的
+        // (2)只要函数遇到return 就把后面的结果 返回给函数的调用者 函数名() = return后面的结果
+        // 2. 代码验证：
+        // function getResult(num1){
+        //     return num1;
+        // }
+        // getResult();  // getResult() = 666
+        // console.log(getResult('666'));
+
+        // function cook(aru){
+        //     return aru;
+        // }
+        // console.log(cook('333'));
+        // 3. 求任意两数的和
+        // function getSum(num1,num2){
+        //     return num1 + num2;
+        // }
+        // console.log(getSum(1,2));
+        //利用函数 求两个数的最大值
+        // function getMax(num1,num2) {
+        //     if (num1 > num2) {
+        //         return num1;
+        //     } else {
+        //         return num2;
+        //     }
+        // }
+        // console.log(getMax(1,3));
+        //利用函数求数组中的最大值
+        // function getArrMax(arr) {
+        //     var max = arr[0];
+        //     for(var i = 1; i<=arr.length; i++){
+        //         if (arr[i] > max) {
+        //             max = arr[i];
+        //         }
+        //     }
+        //     return max;
+        // }
+        // var re = getArrMax([11,22,33,44,55]);
+        // console.log(re);
+        //函数返回值注意事项
+        // 1. return 终止函数，后面的代码不会被执行
+        // 2. 只能返回一个值，返回的结果是最后一个值
+        // 3. 可以用数组求任意两个数的加减乘除结果
+        // 4. 函数如果有return，就返回return后面的值，如果没有，则返回undefined
+        // 5. break ： 结束当前的循环体，continue ： 跳出本次循环，继续执行下次循环；
+        //    return ：不仅可以退出循环，还能够返回return中的值，同时还可以结束当前的函数体内的代码
+
+        //arguments的使用：存储了传递过来的所有实参,具有数组length的属性，按照索引的方式进行存储，只有函数有arguments
+        // function fn() {
+        //     console.log(arguments);   //用了arguments不需要再写形参
+        //     for (var i = 0; i < arguments.length; i++){
+        //         console.log(arguments[i]);  //遍历arguments
+                
+        //     }
+        // }
+        // fn(1,2,3);
+        //利用函数arguments求任意个数的最大值
+        // function getMax() {
+        //     var max = arguments[0];
+        //     for(var i = 1;i < arguments.length; i++) {
+        //         if (arguments[i]> max) {
+        //             max = arguments[i];
+        //         }
+        //     }
+        //     return max;
+        // }
+        // console.log(getMax(1,2,3));
+        
+        
+
+
+
+        //利用函数冒泡排序 sort
+        // function sort (arr) {
+        //     for (var i = 0; i < arr.length-1; i++){  //翻转几趟
+        //         for (var j = 0; j < arr.length-i-1; j++){  //每趟翻转几次
+        //             if (arr[j]>arr[j+1]) {
+        //                 var temp = arr[j];
+        //                 arr[j] = arr[j+1];
+        //                 arr[j+1] = temp;
+        //             }
+        //         }
+        //     }
+        //     return arr;
+        // }
+        // var arr1 = sort([1,0,2,9,3]);
+        // console.log(arr1);
+        
+        //利用函数翻转任意数组 reverse
+        // function reverse (arr) {
+        //     var newArr = [];
+        //     for ( var i = arr.length-1; i >= 0; i--){  //arr.length-1为数组索引值，从0开始算所以需要-1
+        //         newArr[newArr.length] = arr[i];
+        //     }
+        //     return newArr;
+        // }
+        // var arr1 = reverse ([11,22,33,44,55]);
+        // console.log(arr1);
+        
+        //利用函数判断闰年
+        // function isRunYear (year) {
+        //     var flag = false;
+        //     if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+        //         flag = true;
+        //     }
+        //     return flag;
+        // }
+        // console.log(isRunYear(2000));
+        
+        //函数相互调用
+    //     function fn1() {
+    //         console.log(11);
+    //         fn2();
+    //         console.log('fn1');   
+    //     }
+    //     function fn2() {
+    //         console.log(22);
+    //         console.log('fn2');
+    //    }
+    //     fn1();
+        //利用函数调用输出2月天数
+        // function backDay() {
+        //     var year = prompt('请您输入年份');
+        //     if (isRunYear (year)){
+        //         alert('闰年 29天');
+        //     } else {
+        //         alert('平年 28天');
+        //     }
+        // }
+        // backDay();
+        // function isRunYear (year) {
+        //     var flag = false;
+        //     if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0){
+        //         flag = true;
+        //     }
+        //     return flag;
+        // }
+
+        //函数两种声明方式
+        //1.利用函数关键字自定义函数
+        //2.函数表达式（匿名函数）
+            //var 变量名 = function(){}
+            // var fun = function() {
+            //     console.log('111');
+            // }
+            // fun();
+            //fun是变量名不是函数名
+            //函数表达式声明方式和声明变量差不多，只不过变量里存的是值，而函数表达式存的是函数
+            //函数表达式也可以传递参数
+
+            
+        //作用域：两种作用域？区分全局变量和局部变量？如何在作用域链中查找变量的值？
+          // 1. js作用域：变量在某个范围内起作用和效果  提高程序的可靠性，减少命名冲突
+          // 2. js的作用域es6之前：全局、局部
+          // 3. 全局作用域：整个script标签，或者是一个单独的js文件 var num = 10;
+          // 4. 局部作用域（函数作用域）：只在函数内部其效果 
+               // function fn(){局部作用域}
+          // 1. 全局变量：在全局作用域下的变量 ，在函数内部没有声明直接赋值的也叫全局变量
+          // 2. 局部变量：在函数内部的变量  ，函数的形参也可以看作是局部变量
+          // 3. 从执行效率来看全局变量和局部变量:
+          //    （1）全局变量只有在浏览器关闭时才会销毁，比较占内存；
+          //     (2) 局部变量在执行完就会销毁，比较节约内存资源；
+
+
+          //现阶段没有块级作用域，js在es6的时候新增的块级作用域，块级作用域{}  if{}  for{}
+          //外面的是不能调用num的
+
+          //作用域链：内部函数访问外部函数的变量，采取的是链式查找的方式来决定取哪个值 这种结构称为作用域链  就近原则
+          //例子：结果是几？
+        //   function f1 () {
+        //       var num = 123; 
+
+        //       function f2() {
+        //           console.log(num);//一层一层外翻
+                  
+        //       }
+        //       f2();
+        //   }
+        //   var num = 456;
+        //   f1();
+
+
+        //js预解析：解析器运行js分为哪两步？变量提升的步骤和运行过程？函数提升的步骤和运行过程？
+        // 1. js引擎运行js分为两步：预解析和代码执行
+        //   （1）. 预解析js引擎会把js里面所有的var还有function提升到当前作用域的最前面
+        //   （2）. 代码执行按照代码书写的顺序从上往下执行
+        // 2. 预解析分为 变量预解析（变量提升） 和 函数预解析 （函数提升）
+        //   （1）. 变量提升就是把所有的变量声明提升到当前的作用域最前面  不提升赋值操作
+        //   （2）. 函数提升就是把所有的函数声明提升到当前作用域的最前面  不调用函数   
+         //         函数表达式的调用必须写在函数表达式的下面
+        //  例子：
+            // var num = 10;
+            // fun();
+
+            // function fun() {
+            //     console.log(num);
+            //     var num = 20 ;
+                
+            // }
+        // 相当于执行了以下操作：
+        //    var num;
+
+        //    function fun() {
+        //        var num;
+        //         console.log(num);
+        //         num = 20 ;
+                
+        //     }
+        //     num = 10;
+        //     fun();
+        //例子2：
+        // f1();
+        // console.log(c);
+        // console.log(b);
+        // console.log(a);
+
+        // function f1(){
+        //     var a = b = c = 9;
+        //     console.log(a);
+        //     console.log(b);
+        //     console.log(c);
+        // }
+        //相当于执行以下代码：
+        // function f1(){
+        //     var a
+        //     a = b = c = 9;//相当于var a=9; b=9; c=9;b和c直接赋值  作全局变量看；
+        //                       //集体声明  var a=9,b=9,c=9;
+        //     console.log(a);//9
+        //     console.log(b);//9
+        //     console.log(c);//9
+        // }
+        // f1();
+        // console.log(c);//9
+        // console.log(b);//9
+        // console.log(a);//局部变量函数外部不能执行
+
+
+        //对象：为什么需要对象？使用字面量创建对象？使用构造函数创建对象？说出new的执行过程？遍历对象？
+        //对象是一组 无序的 相关属性 和 方法 的集合，所有的事物都是对象
+        //对象是由 属性（名词） 和 方法（动词） 组成的
+
+        // 1. 利用字面量创建：{}中包含表达这个具体事物（对象）的属性和方法
+        //例子：
+        // var obj = {
+        //     uname:'',       //多个属性和方法之间用逗号隔开
+        //     age:18,          //里面的属性和方法我们采取键值对的形式  键：属性名 值：属性值
+        //     sex:'',
+        //     sayHi:function() {    //方法冒号后面跟的是一个匿名函数
+        //         console.log('hi');
+                
+        //     }
+        // }
+        // 2. 使用对象：
+        //  （1）调用对象的属性  采取 对象名.属性名 console.log(obj.uname);
+        //   (2)另一种调用属性的方法： 对象名['属性名']   console.log(obj['age']);
+        //   (3)调用对象的方法  对象名.方法名（）   obj.sayHi();
+
+        //变量 属性 函数 方法 的区别
+        //变量和属性：都是用来存储数据的，变量单独声明并赋值 使用的时候直接写变量名 单独存在，属性在对象里不需要声明
+        //           使用的时候必须是  对象.属性
+        //函数和方法：都是实现某种功能    函数是单独声明并且调用，函数名（）单独存在的；
+        //           方法在对象里面，调用的时候 对象.方法（）
+
+        // 利用new Object 创建对象
+        // var obj = new Object();  //创建一个空的对象
+        // obj.uname = '';
+        // obj.age = 18;
+        // obj.sex = '男';
+        // obj.sayHi = function(){
+        //     console.log('hi');
+            
+        // }
+            //（1）利用等号 = 赋值的方法  添加对象的属性和方法
+            //（2）每个属性和方法之间用分号结束
+            // console.log(obj.uname);
+            // console.log(obj['age']);
+            // obj.sayHi();
+
+        //为什么使用构造函数？因为前面的方法一次只能创建一个对象，里面很多属性和方法都是相同的，这个函数里面封装的
+        //是对象，把对象里面一些相同的属性和方法抽象出来封装到函数里面
+        //利用构造函数创建对象
+        //语法格式：
+        // function 构造函数名(){
+        //     this.属性 = 值；
+        //     this.方法 = function(){}
+        // }
+        // new 构造函数名();
+        //例子：
+        // function Star(uname,age,sex) {  //构造函数名首字母大写
+        //     this.name = uname;
+        //     this.age = age;
+        //     this.sex = sex;
+        //     this.sing = function(sang){  //属性和方法前面必须加上this
+        //         console.log(sang);
+                
+        //     }
+        // }
+        // var ldh = new Star('刘德华',18,'男'); //构造函数不需要return，就可以返回结果
+        // console.log(ldh.name);
+        // console.log(ldh['sex']);
+        // ldh.sing('冰雨');
+        // var zxy = new Star('张学友',19,'男'); //调用构造函数，必须使用new
+        // console.log(zxy.name);
+        // console.log(zxy['sex']);
+        // zxy.sing('李香兰');
+
+        //构造函数和对象的区别：构造函数指的是某一大类，对象指的是一个具体的事物
+
+        //new关键字执行过程
+        // 1. new 构造函数可以在内存中创建了一个空的对象
+        // 2. this 就会指向刚才创建的空对象
+        // 3. 执行构造函数里面的代码，就会给这个空对象添加属性和对象
+        // 4. 返回这个新对象
+
+
+        //遍历对象：
+        // for (变量 in 对象) {
+
+        // }
+        //例子：
+        // var obj = {
+        //     name:'',
+        //     age:18,
+        //     sex:'男'
+        // }
+        // for (var k in obj) {   //通常用k或者key
+        //     console.log(k); //k 变量输出 得到的是 属性名
+        //     console.log(obj[k]);  //obj[k] 得到的是属性值
+            
+        // }
+
+        
+        
+        </script>
+</head>
+<body>
+   
+</body>
+</html>

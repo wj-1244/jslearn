@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let 关键字  
+        // (1) 使用let关键字声明的变量具有块级作用域
+        // if (true) {
+        //     let b = 20;
+        //     console.log(b);
+        //     if (true) {
+        //         let c = 30;
+        //     }
+        //     console.log(c);
+            
+        // }
+        // console.log(b);
+        // (2) 优点： 防止循环变量变成全局变量
+        //  for (let i = 0; i < 2; i++) {
+
+        //  }
+        //  console.log(i);
+        // (3) 不存在变量提升
+        // console.log(a);
+        // let a = 100;
+        // (4) 使用let关键字声明的变量具有暂时性死区特性
+        // var num = 10
+        // if (true) {
+        //     console.log(num);
+        //     let num = 20;
+        // }
+
+        //const关键字
+        // 作用： 声明常量，常量就是值 (内存地址) 不能变化的量
+        // (1) 块级作用域
+        // if (true) {
+        //     const a = 10;
+        //     if (true) {
+        //         const a = 20;
+        //         console.log(a);
+                
+        //     }
+        //     console.log(a);
+            
+        // }
+        // console.log(a);
+        // (2) 使用const 关键字声明的常量必须赋初始值
+        //const pi = 3.14;
+        // 常量赋值后 值不能修改
+        // (1)
+        // const pi = 3.14;
+        // pi = 100;
+        // (2)
+        //const ary = [100,200];
+        //ary[0] = 123;  //可以修改数组中的数据
+       // ary = [1,2] //不能直接修改数组，更改了常量值的内存地址
+        //console.log(ary);
+
+        // 数组解构赋值
+        // 数组解构允许我们按照一一对应的关系从数组中提取值 然后将值赋值给变量
+        // let ary = [1,2,3];
+        // let [a,b,c,e,d] = ary;
+        // console.log(a);
+        // console.log(b);
+        // console.log(c);
+        // console.log(d);
+        // console.log(e);
+
+        // 对象解构
+        // 对象解构允许我们使用变量的名字匹配对象的属性 匹配成功将对象属性的值赋值给变量
+        // let person = {name: 'lisi',age: 30 , sex: '男'};
+        // let {name,age,sex} = person;
+        // console.log(name);
+        // console.log(age);
+        // console.log(sex);
+        // let {name: myName} = person;
+        // console.log(myName);
+
+        //箭头函数
+        //箭头函数是用来简化函数定义语法的
+        // const fn = () => {
+        //     console.log(123)
+            
+        // }
+        // fn();
+        // 在箭头函数中 如果函数体中只有一句代码 并且代码的执行结果就是函数的返回值 函数体大括号可以省略
+        // const sum = (n1, n2) => n1 + n2;
+        // const result = sum(10,20);
+        // console.log(result);
+        // 如果形参只有一个 形参外侧的小括号也是可以省略的
+        // const fn = v => {
+        //     alert(v);
+        // }
+        // fn(20)
+        // 箭头函数中的this关键字
+        // 箭头函数不绑定this关键字，箭头函数中的this 指向的是函数定义位置的上下文this
+        // function fn () {
+        //     console.log(this);
+        //     return () => {
+        //         console.log(this);
+                
+        //     }
+        // }
+        //  const obj = {name: 'zhangsan'};
+        //  const resFn = fn.call(obj);
+        //  resFn();
+       // 例子：
+        // var age = 100;
+        // var obj = {  //不产生作用域 say方法被定义在全局作用域下
+        //     age: 20,
+        //     say: () => {
+        //         alert(this.age)
+        //     }
+        // }
+        // obj.say();
+
+        // 剩余参数
+        
+        
+        
+        
+        
+         
+        </script>
+</body>
+</html>

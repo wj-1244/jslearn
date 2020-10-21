@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    //学习目标：为什么要有数组？创建数组？获取数组中的元素？遍历数组？新增数组元素？冒泡排序？
+    // 1. 数组Array：就是一组数据的集合 存储在单个变量下的方式
+    // 2. 利用new创建数组
+    //    var arr = new Array(); //创建一个空的数组
+    // 3. 利用数组字面量创建数组[]
+    // var arr = [];
+    // 4. 数组里的数据一定用逗号隔开
+    // 5. 数组里的数据，成为数组元素
+    // 6. 获取数组元素： 数组名[索引号]
+    //    var arr1 = [1,2,3,4];
+    //    console.log(arr1[1]);
+    // 7. 遍历数组：把数组中每个元素从头到尾访问一遍
+    //    var arr = ['red','green','blue'];
+    //    for (var i = 0; i < 3; i++) {   //索引号从0开始
+    //     console.log(arr[i]);  //输出的i当计数器用
+        
+    //    }
+    // 8. 数组长度：数组名.length
+        // var arr = [11,22,33,44,55];
+        // for (var i = 0; i < arr.length; i++){
+        //     console.log(arr[i]);
+            
+        // }
+        // console.log(arr.length);
+    //例子：求和及平均数
+    // var arr = [2,6,1,7,4];
+    // var sum = 0;
+    // var average = 0;
+    // for (var i = 0; i < arr.length;i++) {
+    //     sum += arr[i];  //加的是数组元素arr[i]  不是计数器i
+    // }
+    // average = sum / arr.length;
+    // console.log(sum,average);
+
+    //求数组中的最大值
+    // var arr = [2,6,1,77,52,25,7];
+    // var max = arr[0];
+    // for(var i = 1; i < arr.length; i++){
+    //     if (arr[i] > max) {
+    //         max = arr[i];
+    //     }
+    // }
+    // console.log('该数组中最大值是：' + max);
+
+    //数组转换为字符串
+    // var arr = ['red','green','blue','pink'];
+    // var str = '';
+    // var sep = '*';
+    // for ( var i = 0; i < arr.length; i++) {
+    //     str += arr[i] + sep;
+    // }
+    // console.log(str);
+
+    // 9. 数组新增元素
+    //    (1) 修改arr.length的值
+    //    (2) 新增数组元素，修改索引号  注意：不要直接给数组名赋值，否则里面的数组元素都没有了
+            //   var arr1 = ['red','green','blue'];
+            //   arr1[3] = 'pink';
+            //   console.log(arr1);
+    // 10. 数组存放1-10个值
+    // var arr = [];
+    // for (var i = 0; i < 10; i++) {
+    //     arr[i] = i + 1;
+    // }
+    //   console.log(arr);
+    // 11. 筛选数组
+    //方法1
+    // var arr = [2,0,6,1,77,0,52,0,25,7];
+    // var newArr = [];
+    // var j = 0;
+    // for (var i = 0; i < arr.length; i++){
+    //     if (arr[i] > 10) {
+    //        newArr[j] = arr[i];
+    //        j++;
+    //     }
+    // }
+    // console.log(newArr);
+    //方法2
+    // var arr = [2,0,6,1,77,0,52,0,25,7];
+    // var newArr = [];
+
+    // for (var i = 0; i < arr.length; i++){
+    //     if (arr[i] > 10) {
+    //        newArr[newArr.length] = arr[i];
+
+    //     }
+    // }
+    // console.log(newArr);
+
+    // 12. 删除指定的数组元素，即数组去重
+    // var arr = [2,0,6,1,77,0,52,0,25,7];
+    // var newArr = [];
+    // for (var i = 0; i < arr.length; i++) {
+    //     if (arr[i] !=0){
+    //         newArr[newArr.length] = arr[i];
+    //     }
+    // }
+    // console.log(newArr);
+
+    // 13. 翻转数组
+    // var arr = [11,22,33,44,55];
+    // var newArr = [];
+    // for (var i = arr.length - 1; i >= 0 ; i--) {
+    //     newArr[newArr.length] = arr[i]
+    // }
+    // console.log(newArr);
+
+    // 14. 冒泡排序：一种算法，把一系列的数据按照一定的顺序进行排列显示
+        //     var arr = [5,3,4,2,1];
+        //     for (var i = 0; i <= arr.length - 1; i++){
+        //         for (var j = 0; j <= arr.length - i - 1; j++){
+        //             if (arr[j] > arr[j + 1]) {
+        //                 var temp = arr[j];
+        //                 arr[j] = arr[j + 1];
+        //                 arr[j + 1] = temp;
+        //             } 
+        //         }
+        //     }
+        //    console.log(arr);
+   
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
